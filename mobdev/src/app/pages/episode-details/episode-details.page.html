@@ -1,9 +1,59 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>episodeDetails</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="success">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/episodes"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Episodes Details</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="unfavouriteEpisode()" *ngIf="isFavourite">
+				<ion-icon name="star" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteEpisode()" *ngIf="!isFavourite">
+				<ion-icon name="star-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Title:</strong> {{ episode.title }} </h3>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Season:</strong> {{ episode.season }} </h3>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Episode n°:</strong> {{ episode.episode }}</h3>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Episode ID:</strong> {{ episode.episode_id }} </h3>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Air Date:</strong> {{ episode.air_date }} </h3>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3><strong>Characters:</strong></h3>
+			<ion-list style='margin-left: 80px;' *ngFor="let character of episode.characters">
+				{{ character }}
+			</ion-list>
+		</ion-card-content>
+	</ion-card>
 
 </ion-content>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FavouriteService } from '../../services/favourite.service';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-episode-details',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpisodeDetailsPage implements OnInit {
 
-  constructor() { }
+    episode: any;
+    isFavourite = false;
+    episodeId = null;
+
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService) { }
 
   ngOnInit() {
-  }
 
+    this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.api.getEpisode(this.episodeId).subscribe(res => {
+      this.episode = res[0];
+    });
+
+    this.favouriteService.isFavouriteE(this.episodeId).then(isFav => {
+      this.isFavourite = isFav;
+    });
+  }
+ 
+  favouriteEpisode() {
+    this.favouriteService.favouriteEpisode(this.episodeId).then(() => {
+      this.isFavourite = true;
+    });
+  }
+ 
+  unfavouriteEpisode() {
+    this.favouriteService.unfavouriteEpisode(this.episodeId).then(() => {
+      this.isFavourite = false;
+    });
+  }
+ 
 }
