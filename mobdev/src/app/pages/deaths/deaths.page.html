@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>deaths</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="success">
+		<ion-title>Deaths</ion-title>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+	<ion-searchbar [(ngModel)]="author" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
 
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let death of deaths | async" (click)="openDetails(death)">
+			<ion-card-title> {{ death.death }} 
+			</ion-card-title>
+		</ion-item>
+	</ion-list>
 </ion-content>

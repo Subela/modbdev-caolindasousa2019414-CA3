@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>deathDetails</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="success">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/deaths"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Deaths Details</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+	<ion-card *ngIf="death">
+
+		<ion-item>
+			<ion-icon name="person-sharp" slot="start"></ion-icon>
+			<ion-label><strong>Responsible: </strong>{{ death.responsible }}</ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="aperture-sharp" slot="start"></ion-icon>
+			<ion-label><strong>Season: </strong>{{ death.season }}</ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="keypad-sharp" slot="start"></ion-icon>
+			<ion-label><strong>Episode: </strong>{{ death.episode }}</ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="help-sharp" slot="start"></ion-icon>
+			<ion-label><strong>Cause: </strong>{{ death.cause }}</ion-label>
+		</ion-item>
+
+		<ion-card>
+			<ion-label><strong>Last words:</strong>
+				<ion-card-content> {{ death.last_words }} </ion-card-content>
+			</ion-label>
+		</ion-card>
+
+	</ion-card>
 
 </ion-content>
