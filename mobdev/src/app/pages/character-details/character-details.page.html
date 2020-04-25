@@ -1,9 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>characterDetails</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="success">
+		<ion-buttons slot="start">
+			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Characters Details</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="unfavouriteCharacter()" *ngIf="isFavourite">
+				<ion-icon name="star" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteCharacter()" *ngIf="!isFavourite">
+				<ion-icon name="star-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+	<ion-card *ngIf="character">
+		<img style="width: 100%; height: auto;" src="{{ character.img }}">
+		<ion-card-header>
+			<ion-card-subtitle>Character Name:</ion-card-subtitle>
+			<ion-card-title>{{ character.name }}</ion-card-title>
+		</ion-card-header>
+	</ion-card>
+
+	<ion-card *ngIf="character">
+		<ion-item>
+			<ion-icon name="film" slot="start"></ion-icon>
+			<ion-label>Brasking Bad Season: {{ character.appearance }} </ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="heart-half-sharp" slot="start"></ion-icon>
+			<ion-label>Status: {{ character.status }}</ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="information-circle-sharp" slot="start"></ion-icon>
+			<ion-label>Ocuppation:
+				<ion-list-header style='margin-left: 80px;' *ngFor="let occupation of character.occupation">
+					{{ occupation }}
+				</ion-list-header>
+			</ion-label>
+		</ion-item>
+
+	</ion-card>
 
 </ion-content>
