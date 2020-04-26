@@ -3,7 +3,7 @@
 ## Student Olinda Suely Pena de Moraes de Sousa
 ### Student ID 2019414
 
-###### This mobile project was constructed following the lecture2s material and some research on internet.
+#### This mobile project was constructed following the lecture2s material and some research on internet.
 
 *  Fist step: 
 
