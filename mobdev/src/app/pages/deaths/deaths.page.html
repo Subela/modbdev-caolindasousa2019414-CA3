@@ -5,12 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-searchbar [(ngModel)]="author" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
+	<ion-searchbar [(ngModel)]="name" (ionChange)="search($event)" placeholder="Search: type the whole name">
+	</ion-searchbar>
 
 	<ion-list>
-		<ion-item button detail lines="inset" *ngFor="let death of deaths | async" (click)="openDetails(death)">
-			<ion-card-title> {{ death.death }} 
-			</ion-card-title>
+		<ion-item button *ngFor="let death of deaths | async" (click)="openDetails(deaths)">
+			<ion-label>
+				<h4>{{ death.death }}</h4>
+				<p> {{  death.responsible }} </p>
+				<h4>{{ death.name }}</h4>
+			</ion-label>
 		</ion-item>
 	</ion-list>
+
 </ion-content>

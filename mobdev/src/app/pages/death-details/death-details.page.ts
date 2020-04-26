@@ -16,8 +16,7 @@ export class DeathDetailsPage implements OnInit {
 
     ngOnInit() {
 
-        this.deathCount = this.activatedRoute.snapshot.paramMap.get('count');
-
+        this.deathCount = this.activatedRoute.snapshot.paramMap.get('name');
         this.api.getDeath(this.deathCount).subscribe(res => {
             this.death = res[0];
         });

@@ -5,11 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-searchbar [(ngModel)]="terms"></ion-searchbar>
 
 	<ion-list>
 		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
-            {{ episode.title }}
+			{{ episode.title }}
 		</ion-item>
 	</ion-list>
 

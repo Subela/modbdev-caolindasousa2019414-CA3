@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApiService {
-
-    allQuotes: Array<any>;
 
     constructor(private http: HttpClient) { }
 
@@ -34,11 +32,22 @@ export class ApiService {
         return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`);
     }
 
+    getSearchQuote(name) {
+        return this.http.get(`https://www.breakingbadapi.com/api/quote?author=${name}`);
+    }
+
     getDeaths() {
         return this.http.get('https://www.breakingbadapi.com/api/deaths');
     }
-    getDeath(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/deaths');
+
+    getDeath(name: string) {
+        return this.http.get('https://www.breakingbadapi.com/api/death-count?name=${name}');
     }
+
+    getSearchDeath(name) {
+        return this.http.get(`https://www.breakingbadapi.com/api/death-count?name=${name}`);
+    }
+
+    
 
 }
