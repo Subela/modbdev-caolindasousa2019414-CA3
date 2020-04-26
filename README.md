@@ -7,11 +7,11 @@
 
 *  Fist step: 
 
-###### create a new repositorio on GitHub
-###### open in GitPod (https://gitpod.io#)
-###### instal Ionic (npm i -g ionic)
-###### create the structre folders (ionic start mobdev blank --type=angular)
-###### create the filte .gitpod.yml to inicialize the system every time thar it will open the project 
+#### create a new repositorio on GitHub
+#### open in GitPod (https://gitpod.io#)
+#### instal Ionic (npm i -g ionic)
+#### create the structre folders (ionic start mobdev blank --type=angular)
+#### create the filte .gitpod.yml to inicialize the system every time thar it will open the project 
 ######    tasks:
 ######      - name: Installing Ionic 5 & Cordova
 ######        command: npm i -g @ionic/cli cordova && cd mobdev-ionic-project123456 (alterar para seu nome e ID) 
@@ -19,7 +19,7 @@
 
 *  Second step:  
 
-###### create the folders estructure:
+#### create the folders estructure:
 ###### ionic g page pages/tabs
 ###### ionic g page pages/characters, ionic g page pages/characterDetails
 ###### ionic g page pages/episodes
@@ -32,7 +32,7 @@
 
 *  Third step:
 
-  + 1 - It start to implement the API conexion and page layout on files:
+#### It start to implement the API conexion and page layout on files:
 ###### app-routing.module.ts
 ###### app.module.ts
 ###### tabs-routing.module.ts
